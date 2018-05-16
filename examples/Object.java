@@ -1,6 +1,4 @@
-﻿package examples;
-
-public class Object {
+﻿public class Object {
     private String string;
     private int integer;
 

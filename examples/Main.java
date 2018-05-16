@@ -1,12 +1,9 @@
-﻿package examples;
-
-import javax.swing.JButton;
+﻿import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import java.awt.Font;
-//import java.util.Scanner;
 
 public class Main {
 
