@@ -24,7 +24,7 @@ public class Basquete extends Time {
             "\nRegras: " + regra +
             "\nNumero de jogadores: " + numerojogadores +
             "\nSede do jogo: " + sede +
-            "\nData de cria√ß√£o: " + dataCriacao + "\n"
+            "\nData de criaÁ„o: " + dataCriacao + "\n"
         );
     }
 
@@ -38,7 +38,7 @@ public class Basquete extends Time {
             Aux = timeb;
             
         System.out.println(
-            "O pr√≥ximo jogo ser√° jogado por" +
+            "O prÛximo jogo ser· jogado por " +
                 Aux    + " de Basquete!"
         ); 
     }
