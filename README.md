@@ -1,2 +1,2 @@
-# LP1
-Laboratório de Programação 1
+# Práticas de LP1
+Atividades práticas da disciplina *Laboratório de Linguagens de Programação 1*
