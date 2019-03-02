@@ -1,4 +1,4 @@
-public class disciplina {
+﻿public class disciplina {
     private int[] nota = new int[4];
     private int frequencia;
     private String nome;

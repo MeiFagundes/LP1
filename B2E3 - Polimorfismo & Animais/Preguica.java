@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Preguica
  */
 public class Preguica extends Animal {
@@ -16,6 +16,6 @@ public class Preguica extends Animal {
     }
 
     void sobe(){
-        System.out.println("Preguica subiu em uma �rvore!");
+        System.out.println("Preguica subiu em uma árvore!");
     }
 }

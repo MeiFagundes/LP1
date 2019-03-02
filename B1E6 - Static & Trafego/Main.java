@@ -4,72 +4,86 @@ import java.awt.event.*;
 
 public class Main {
 
-    static int[] semaforoLanes = new int[4];
-    static Carro carro[] = new Carro[3];
+    static int[] SEMAFORO;
+    static Carro CARRO[];
+    static int NUM_TURNOS;
+
+    static{
+        SEMAFORO = new int[4];
+        CARRO = new Carro[3];
+        NUM_TURNOS = 1;
+    }
     
     public static void main(String[] args)
    {  
 
         
-        carro[0] = new Carro(3, 2);
-        carro[1] = new Carro(3, 1);
-        carro[2] = new Carro(2, 0);
+        CARRO[0] = new Carro(3, 2);
+        CARRO[1] = new Carro(3, 1);
+        CARRO[2] = new Carro(2, 0);
         GUI();
 
    }
 
    static void executarTurno(){
-    java.util.Random random = new java.util.Random();
-    for (int i = 0; i < carro.length; i++) {
-        boolean virarDireita = random.nextBoolean();
-        if(carro[i].getTravessia() == true || carro[i].getPos() == 0 || carro[i].getPos() == 1){
-            Movimento.go(carro[i], virarDireita);
-        } else {
-            switch (semaforoLanes[carro[i].getLane()]) {
-                case 2:
-                case 1:
-                    Movimento.go(carro[i], virarDireita);
-                    break;
-                case 0:
-                default:
-                    break;
-            }
-        }
+    
+    
+    System.out.println("\n--- Turno Nº " + NUM_TURNOS++ + " ---\n");
 
-        // Chamando o Garbage Collector
-        if(carro[i].getPos() < 0){
-            carro[i] = null;
-            System.gc();
+    java.util.Random random = new java.util.Random();
+    for (int i = 0; i < CARRO.length; i++) {
+        if (CARRO[i] != null){
+            boolean IntencaoVirarDireita = random.nextBoolean();
+            if(CARRO[i].getTravessia() == true || CARRO[i].getPos() == 0 || CARRO[i].getPos() == 1){
+                Movimento.go(CARRO[i], IntencaoVirarDireita);
+            } else {
+                switch (SEMAFORO[CARRO[i].getLane()]) {
+                    case 2:
+                    case 1:
+                        Movimento.go(CARRO[i], IntencaoVirarDireita);
+                        break;
+                    case 0:
+                    default:
+                        break;
+                }
+            }
+    
+            // Chamando o Garbage Collector
+            if(CARRO[i].getPos() < 0){
+                CARRO[i] = null;
+                System.gc();
+            }
+            // DEBUG
+            if (CARRO[i] != null)
+                System.out.println("Carro Nº " + i + "\nPosição = " + CARRO[i].getPos() + "\nLane = " + CARRO[i].getLane() + "\nIntenção de virar à Direita? = " + IntencaoVirarDireita + "\n");
         }
-        // DEBUG
-        System.out.println("carro[" + i + "]\nPos = " + carro[i].getPos() + "\nLane = " + carro[i].getLane() + "\nvirarDireita = " + virarDireita + "\n");
     }
 
     // Atualizando semáforos
-    switch (semaforoLanes[0]) {
+    switch (SEMAFORO[0]) {
         case 2:
-            semaforoLanes[0] = Semaforo.AMARELO.setSinal();
-            semaforoLanes[2] = Semaforo.AMARELO.setSinal();
+            SEMAFORO[0] = Semaforo.AMARELO.setSinal();
+            SEMAFORO[2] = Semaforo.AMARELO.setSinal();
             break;
         case 1:
-            semaforoLanes[0] = Semaforo.VERMELHO.setSinal();
-            semaforoLanes[2] = Semaforo.VERMELHO.setSinal();
-            semaforoLanes[1] = Semaforo.VERDE.setSinal();
-            semaforoLanes[3] = Semaforo.VERDE.setSinal();
+            SEMAFORO[0] = Semaforo.VERMELHO.setSinal();
+            SEMAFORO[2] = Semaforo.VERMELHO.setSinal();
+            SEMAFORO[1] = Semaforo.VERDE.setSinal();
+            SEMAFORO[3] = Semaforo.VERDE.setSinal();
             break;
         case 0:
-            if(semaforoLanes[1] == 1){
-                semaforoLanes[0] = Semaforo.VERDE.setSinal();
-                semaforoLanes[2] = Semaforo.VERDE.setSinal();
+            if(SEMAFORO[1] == 1){
+                SEMAFORO[0] = Semaforo.VERDE.setSinal();
+                SEMAFORO[2] = Semaforo.VERDE.setSinal();
             } else {
-                semaforoLanes[1] = Semaforo.AMARELO.setSinal();
-                semaforoLanes[3] = Semaforo.AMARELO.setSinal();
+                SEMAFORO[1] = Semaforo.AMARELO.setSinal();
+                SEMAFORO[3] = Semaforo.AMARELO.setSinal();
             }
             break;
         default:
             break;
     }
-    Imprimir();
+    //Imprimir();
    }
 
    static void GUI(){
@@ -92,16 +106,16 @@ public class Main {
 
    static void Imprimir(){
        //int[] Lane = new int[4];
-       int[] Pos = new int[4];
+       int[] Pos = new int[6];
        for (int i = 0; i < Pos.length; i++) {
            Pos[i] = 0;
        }
-       for (int i = 0; i < carro.length; i++) {
+       for (int i = 0; i < CARRO.length; i++) {
            for (int k = 0; k < 4; k++) {
-                for (int j = 0; j < 4; j++) {
-                    if(carro[j].getPos() == j && carro[j].getLane() == k){
+                for (int j = 0; j < CARRO.length; j++) {
+                    if(CARRO[j].getPos() == j && CARRO[j].getLane() == k){
                         //Lane[i] = carro[j].getLane();
-                        Pos[i] = carro[j].getCont();
+                        Pos[i] = CARRO[j].getCont();
                     }
                 }
 

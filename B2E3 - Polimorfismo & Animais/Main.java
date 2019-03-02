@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Main
  */
 public class Main {
@@ -10,7 +10,7 @@ public class Main {
         Preguica preguica;
         Cachorro cachorro;
 
-        animal[0] = new Cavalo("Pacot�", 12);
+        animal[0] = new Cavalo("Pocotó", 12);
         animal[1] = new Preguica("Soninho", 5);
         animal[2] = new Cachorro("Rex", 7);
 

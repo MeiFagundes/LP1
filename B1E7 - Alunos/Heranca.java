@@ -1,4 +1,7 @@
-public class Herança {
+﻿import javax.swing.JOptionPane;
+import java.util.Scanner;
+
+public class Heranca {
 
     public static void main(String[] args) {
         Scanner ent = new Scanner(System.in);

@@ -1,4 +1,4 @@
-public class curso {
+﻿public class curso {
 
     private String nome;
     private int codigo;

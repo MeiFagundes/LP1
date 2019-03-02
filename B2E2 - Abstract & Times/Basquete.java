@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Date;
+import java.util.Random;
 
 /**
  * Basquete extends Time
@@ -24,7 +25,7 @@ public class Basquete extends Time {
             "\nRegras: " + regra +
             "\nNumero de jogadores: " + numerojogadores +
             "\nSede do jogo: " + sede +
-            "\nData de criaÁ„o: " + dataCriacao + "\n"
+            "\nData de cria√ß√£o: " + dataCriacao + "\n"
         );
     }
 
@@ -38,7 +39,7 @@ public class Basquete extends Time {
             Aux = timeb;
             
         System.out.println(
-            "O prÛximo jogo ser· jogado por " +
+            "O pr√≥ximo jogo ser√° jogado por " +
                 Aux    + " de Basquete!"
         ); 
     }

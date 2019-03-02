@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Tempo {
 
@@ -18,6 +18,8 @@ public class Tempo {
                 in.nextInt()        
             );
         }
+
+        in.close();
         
         for(int i = 0; i < data.length; i++){
             System.out.println(
